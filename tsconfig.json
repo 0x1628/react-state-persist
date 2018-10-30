@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+      "declaration": true,
+      "target": "es5",
+      "module": "commonjs",
+      "strict": true,
+      "rootDir": "src",
+      "outDir": "lib",
+      "downlevelIteration": true,
+      "jsx": "react",
+      "lib": [
+        "es2017",
+        "dom"
+      ]
+  },
+}

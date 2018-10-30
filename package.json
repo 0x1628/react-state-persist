@@ -1,0 +1,32 @@
+{
+  "name": "react-state-persistent",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragment0/react-state-persistent.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fragment0/react-state-persistent/issues"
+  },
+  "homepage": "https://github.com/fragment0/react-state-persistent#readme",
+  "devDependencies": {
+    "@fragment0/tslint-config": "^0.1.2",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.4"
+  },
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}
