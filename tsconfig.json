@@ -2,6 +2,7 @@
   "compilerOptions": {
       "declaration": true,
       "target": "es5",
+      "moduleResolution": "node",
       "module": "commonjs",
       "strict": true,
       "rootDir": "src",
@@ -13,4 +14,9 @@
         "dom"
       ]
   },
+  "exclude": [
+    "lib",
+    "node_modules",
+    "**/__tests__/*"
+  ]
 }

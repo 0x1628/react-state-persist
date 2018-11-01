@@ -7,8 +7,13 @@
     "dev": "tsc -p . -w",
     "prebuild": "npm run test",
     "build": "tsc -p .",
-    "test": "tslint -p ."
+    "build-umd": "tsc -p . --target es6 --module es6 && rollup -c",
+    "test": "tslint -p .",
+    "prepublishOnly": "NODE_ENV=production npm run build"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fragment0/react-state-persistent.git"
@@ -21,10 +26,20 @@
   "homepage": "https://github.com/fragment0/react-state-persistent#readme",
   "devDependencies": {
     "@fragment0/tslint-config": "^0.1.3",
+    "@types/jest": "^23.3.9",
+    "@types/puppeteer": "^1.9.1",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "@types/react-test-renderer": "^16.0.3",
+    "jest": "^23.6.0",
+    "mutation-observer": "^1.0.3",
+    "puppeteer": "^1.10.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-test-renderer": "^16.6.0",
+    "rollup": "^0.67.3",
+    "rollup-plugin-replace": "^2.1.0",
+    "ts-jest": "^23.10.4",
     "tslint": "^5.11.0",
     "typescript": "^3.1.4"
   },

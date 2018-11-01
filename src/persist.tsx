@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {findDOMNode} from 'react-dom'
 import {findAllInRenderedTree} from 'react-dom/test-utils'
-import {Persist} from '.'
+import {Persist} from './index'
 
 /* no way to get a persistent fingerprint for each render
 function getComponentFingerprint(c: React.Component): string {
@@ -67,7 +67,6 @@ export const persist: Persist = () => {
     componentDidUpdate() {
       // temp lock for prevent changeCallback
       this.lock = true
-
       updateComponentWithCache(this.node!, persistMap, 0, () => {
         requestAnimationFrame(() => {
           this.lock = false
