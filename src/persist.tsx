@@ -67,9 +67,11 @@ export const persist: Persist = () => {
     componentDidUpdate() {
       // temp lock for prevent changeCallback
       this.lock = true
-      updateComponentWithCache(this.node!, persistMap, 0, () => {
-        requestAnimationFrame(() => {
-          this.lock = false
+      requestAnimationFrame(() => {
+        updateComponentWithCache(this.node!, persistMap, 0, () => {
+          requestAnimationFrame(() => {
+            this.lock = false
+          })
         })
       })
     }

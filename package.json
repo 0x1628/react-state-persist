@@ -1,6 +1,6 @@
 {
   "name": "react-state-persist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "build": "tsc -p .",
     "build-umd": "tsc -p . --target es6 --module es6 && rollup -c",
     "test": "tslint -p .",
+    "jest": "npm run build-umd && jest",
     "prepublishOnly": "NODE_ENV=production npm run build"
   },
   "files": [

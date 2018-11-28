@@ -79,6 +79,11 @@ const createApp = () => {
 }
 `
 
+const insertEnd = `const end = document.createElement('div')
+end.id = 'end'
+document.body.appendChild(end)
+`
+
 test('react', async () => {
   expect.assertions(2)
 
@@ -114,11 +119,14 @@ test('react setState and rerender', async () => {
     const container = document.getElementById('root')
     const App = createApp()
     ReactDOM.render(<App change={true} />, container)
-    requestAnimationFrame(() => {
+    // lower priority
+    requestIdleCallback(() => {
       const NewApp = createApp()
       ReactDOM.render(<NewApp />, container)
+      ${insertEnd}
     })
   `)}`)
+  await page.waitFor('#end')
   const content = await page.content()
   expect(content).toContain('childstate0')
 })
@@ -144,11 +152,14 @@ test('react state persistent and rerender', async () => {
     const cached = ReactStatePersistent.persist()
     const App = createApp()
     ReactDOM.render(cached(<App change={true} />), container)
-    requestAnimationFrame(() => {
+    // lower priority
+    requestIdleCallback(() => {
       const NewApp = createApp()
       ReactDOM.render(cached(<NewApp />), container)
+      ${insertEnd}
     })
   `)}`)
+  await page.waitFor('#end')
   const content = await page.content()
   expect(content).toContain('childstate1')
 })
