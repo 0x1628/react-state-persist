@@ -57,7 +57,9 @@ export const persist: Persist = () => {
     componentDidMount() {
       const el = findDOMNode(this.node!)
       const observer = this.observer = new MutationObserver(this.changeCallback)
-      observer.observe(el!.parentNode!, {attributes: true, childList: true,
+      // assume only single root app
+      // use document.body directly to monitor portal change
+      observer.observe(document.body, {attributes: true, childList: true,
         subtree: true, characterData: true})
 
       saveStatefulComponent(persistMap, this.node!)
